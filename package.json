@@ -4,8 +4,8 @@
   "repository": "https://github.com/dont-catch-me",
   "author": "iren <irenn.dev@gmail.com>",
   "scripts": {
-    "start": "parcel public/index.html -p 3000 --open",
-    "build": "parcel build public/index.html --out-dir dist"
+    "start": "parcel src/index.html -p 3000 --open",
+    "build": "parcel build src/index.html --out-dir dist"
   },
   "dependencies": {
     "phaser": "^3.54.0",
