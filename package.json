@@ -32,5 +32,8 @@
   },
   "parcelCleanPaths": [
     "dist"
+  ],
+  "browserslist": [
+    "last 1 Chrome version"
   ]
 }
