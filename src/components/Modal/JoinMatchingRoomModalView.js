@@ -1,25 +1,43 @@
-import React from "react";
-import styled from "styled-components";
+import React, { useState } from "react";
 
-import ModalView from "../shared/ModalView";
-import ModalContent from "../shared/ModalContent";
+import Buttons from "../../components/shared/Buttons";
+import EnterRoomModalView from "../../components/Modal/EnterRoomModalView";
+import MakeInvitaionModalView from "../../components/Modal/MakeRoomModalView";
+import MainButton from "../../components/MainButton";
+import Modal from "../../components/Modal";
 
-const JoinMatchingRoomModalView = ({ userName, onChange, onSubmit }) => {
+const JoinPage = () => {
+  // const roomID = useSelector(({ room }) => room.roomID);
+  const [isEnterRoomModalOpen, setIsEnterRoomModalOpen] = useState(false);
+  const [isInvitationModalOpen, setIsInvitationModalOpen] = useState(false);
+  
+  const handleEnterButtonClick = () => {
+    setIsEnterRoomModalOpen(!isEnterRoomModalOpen);
+  };
+
+  const handleInvitationButtonCLick = () => {
+    setIsInvitationModalOpen(!isInvitationModalOpen);
+  };
+
   return (
-    <ModalView padding={20} width={400} height={300}>
-      <ModalContent>
-        <ModalForm onSubmit={onSubmit}>
-          <input type="text" name="userName" value={userName} onChange={onChange} />
-          <input type="submit" value="Join" />
-        </ModalForm>
-      </ModalContent>
-    </ModalView>
+    <Buttons>
+      {isEnterRoomModalOpen && (
+        <Modal>
+          <EnterRoomModalView />
+        </Modal>
+      )}
+      {isInvitationModalOpen && (
+        <Modal>
+          <MakeInvitaionModalView 
+            onMoveNextPage={setIsEnterRoomModalOpen} 
+            onExit={setIsInvitationModalOpen} 
+          />
+        </Modal>
+      )}
+      <MainButton name="입장하기" onClick={handleEnterButtonClick} />
+      <MainButton name="초대하기" onClick={handleInvitationButtonCLick} />
+    </Buttons>
   );
 };
 
-const ModalForm = styled.form`
-  display: flex;
-  flex-direction: column;
-`;
-
-export default JoinMatchingRoomModalView;
+export default JoinPage;
