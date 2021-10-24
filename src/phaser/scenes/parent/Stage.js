@@ -11,12 +11,14 @@ import { gameProgress } from "../../../constants/gameState";
 
 export default class Stage extends Phaser.Scene {
   init() {
-    // this.cameras.main.fadeIn(500, 0, 0, 0);
-
     this.isCleared = false;
   }
 
   create() {
+    const countDownScene = new CountDownScene(this.scene);
+
+    this.scene.add("CountDownScene", countDownScene, true);
+
     this.setStatusBar();
 
     this.setCoinToMap();
@@ -35,13 +37,13 @@ export default class Stage extends Phaser.Scene {
       return;
     }
 
-    this.score.x = this.hero.body.position.x + 350;
-    this.score.y = this.hero.body.position.y - 300;
+    this.score.x = this.hero.body.position.x + 340;
+    this.score.y = this.hero.body.position.y - 320;
 
     this.score.setText(`SCORE: ${this.registry.values.score}`);
 
-    this.countDown.x = this.hero.body.position.x + 180;
-    this.countDown.y = this.hero.body.position.y - 300;
+    this.countDown.x = this.hero.body.position.x + 115;
+    this.countDown.y = this.hero.body.position.y - 320;
 
     const currentTime = this.timer.getProgress().toString().substr(0, 4);
 
@@ -95,10 +97,18 @@ export default class Stage extends Phaser.Scene {
 
   setStatusBar() {
     this.score = this.add
-      .bitmapText(0, 0, "font", `SCORE: ${this.registry.values.score}`)
+      .text(0, 0, `SCORE: ${this.registry.values.score}`, {
+        fontSize: "35px", 
+        fill: "#FFFFFF", 
+        fontFamily: "MainFont" 
+      })
       .setDepth(7);
     this.countDown = this.add
-      .bitmapText(0, 0, "font", `TIME:  ${this.registry.values.time}`)
+      .text(0, 0, `TIME:  ${this.registry.values.time}`, {
+        fontSize: "35px",
+        fill: "#FFFFFF", 
+        fontFamily: "MainFont" 
+      })
       .setDepth(7);
 
     this.timer = this.time.delayedCall(90000, this.stopStage, [], this);
@@ -151,7 +161,7 @@ export default class Stage extends Phaser.Scene {
           break;
         }
         case "conditionalChase": {
-          newEnemy.setTint(0xfffc3b);
+          newEnemy.setTint(0xFFD3DD);
           newEnemy.setAI(new ConditionalChaseAI(
             this.hero, 
             newEnemy, 
