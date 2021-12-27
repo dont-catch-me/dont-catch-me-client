@@ -5,7 +5,7 @@
 ### 게임 설명
 
 <div align="center">
-<img src="https://drive.google.com/uc?id=1UFH6lZ-m12Fp6A6AyMfwIAmK9lOqQ1NR" alt="main game" />
+<img src="public/game-play.gif" alt="main game" />
 </div>
 
 싱글모드 stage 1 플레이 화면
@@ -28,7 +28,7 @@
 - 키보드 방향 키를 이용해 컨트롤합니다.
 - 멀티모드의 경우 초대 코드를 복사하거나 카카오톡을 통해 개설 된 방의 링크를 전송할 수 있습니다.
 
-<img src="https://drive.google.com/uc?id=1CI0WFqbbhmVmiCP-FY4bNBaMZjfucNvO" alt="main" />
+<img src="public/page.png" alt="main" />
 
 waiting page 친구에게 전송받은 코드를 통해 방으로 입장할 수 있습니다.
 
@@ -78,13 +78,13 @@ waiting page 친구에게 전송받은 코드를 통해 방으로 입장할 수 
 
 - 프로젝트 기획 및 asset 확보
 
-<img src="https://drive.google.com/uc?id=1JM2Tq7j2HDGwmLXG75ZMIwApAsgXcSiI" alt="carrot" />
+<img src="public/carrot.png" alt="carrot" />
 
 캐릭터 스프라이트의 일부
 
 - 게임 맵 작업
 
-<img src="https://drive.google.com/uc?id=1adMajzCdcWWKyeAalDSJl46C7s1O01dY" alt="map" />
+<img src="public/map.png" alt="map" />
 
 Tiled 프로그램을 이용하여 직접 맵을 구현 한 후에 json 파일로 변환
 
